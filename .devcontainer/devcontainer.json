@@ -1,0 +1,26 @@
+// See https://containers.dev/implementors/json_reference/ for configuration reference
+{
+	"name": "House",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"overrideCommand": true,
+	"remoteUser": "node",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+			"moby": true,
+			"installDockerBuildx": true,
+			"version": "latest",
+			"dockerDashComposeVersion": "v2"
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"GitHub.copilot-nightly",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	}
+}
