@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  app:
+    build: .
+    environment:
+      - TAILSCALE_AUTHKEY=tskey-auth-kv5nk36CNTRL-URHG9kJr6cekqqz7XmNMaecGviSVnCDAe
+      - TAILSCALE_USE_SSH=0
+      - TAILSCALE_STATE_DIR=/var/lib/tailscale
+      - TAILSCALE_SERVE_PORT=80
+      - TAILSCALE_SERVE_MODE=https
+      - TAILSCALE_HOSTNAME=ai
+      - DOCKER_MODS=ghcr.io/tailscale-dev/docker-mod:main
+    volumes:
+      - tailscale:/var/lib/tailscale
+volumes:
+  tailscale:
