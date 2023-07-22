@@ -1,6 +1,6 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "House",
+	"name": "ai",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
@@ -14,12 +14,24 @@
 			"dockerDashComposeVersion": "v2"
 		}
 	},
+	"portsAttributes": {
+		"6006": {
+			"label": "Storybook",
+			"onAutoForward": "notify"
+		},
+		"5173": {
+			"label": "Vite",
+			"onAutoForward": "notify"
+		}
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
 				"esbenp.prettier-vscode",
 				"GitHub.copilot-nightly",
-				"dbaeumer.vscode-eslint"
+				"dbaeumer.vscode-eslint",
+				"ZixuanChen.vitest-explorer",
+				"bradlc.vscode-tailwindcss"
 			]
 		}
 	}
