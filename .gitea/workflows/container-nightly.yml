@@ -6,6 +6,10 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - 
+        uses: https://github.com/actions/hello-world-docker-action@main
+        with:
+          who-to-greet: 'Mona the Octocat'
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -29,8 +33,7 @@ jobs:
         with:
           push: true
           platforms: linux/amd64,linux/arm64/v8
-          tags: ["git.oliverconzen.de/miladiir/ai:nightly"]
-          labels: []
+          tags: git.oliverconzen.de/miladiir/ai:nightly
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
