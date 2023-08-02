@@ -36,6 +36,7 @@ export function TextArea(params: TextAreaParams) {
         !event.shiftKey &&
         event.key === "Enter"
       ) {
+        event.preventDefault();
         params.onChange?.(value);
         setValue("");
       }
