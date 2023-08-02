@@ -8,12 +8,13 @@ const meta = {
       layout: 'centered',
     },
     tags: ['autodocs'],
-    argTypes: {},
   } satisfies Meta<typeof TextArea>;
   
   export default meta;
   type Story = StoryObj<typeof meta>;
   
   export const Default: Story = {
-    args: {},
+    args: {
+      placeHolder: "Write something here"
+    },
   };
