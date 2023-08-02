@@ -21,10 +21,12 @@ function ChatApp() {
   const store = ChatStore.create({});
   const postMessage = useCallback(
     (message: string) => {
-      store.postMessage({
-        role: Role.User,
-        content: message,
-      });
+      store
+        .postMessage({
+          role: Role.User,
+          content: message,
+        })
+        .catch(() => undefined);
     },
     [store]
   );
