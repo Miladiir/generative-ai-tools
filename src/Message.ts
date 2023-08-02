@@ -1,4 +1,4 @@
-import { Instance, SnapshotIn, flow, types } from "mobx-state-tree";
+import { Instance, SnapshotIn, flow, types, toGenerator } from "mobx-state-tree";
 import OpenAI from "openai";
 
 export enum Role {
@@ -19,7 +19,7 @@ export const History = types.array(Message);
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_APIKEY,
 });
-async function* getCompletion(
+async function getCompletion(
   messages: Instance<typeof History>
 ): Promise<SnapshotIn<typeof Message>> {
   const messagesOut = messages.map((message) => ({
@@ -31,7 +31,7 @@ async function* getCompletion(
     messages: messagesOut,
   });
   const responseMessage = response.choices[0].message;
-  yield {
+  return {
     role: responseMessage.role as Role,
     content: responseMessage.content ?? "",
   };
@@ -52,7 +52,7 @@ export const ChatStore = types
       self.history.push(message);
       if (message.role === "user") {
         try {
-          const response = yield getCompletion(self.history);
+          const response = yield* toGenerator(getCompletion(self.history));
           self.history.push(response);
           self.error = null;
           self.loading = false;
