@@ -28,4 +28,10 @@ describe("hello", () => {
     console.log(response.choices[0].message);
     expect(response?.choices[0].message.content).to.not.be.undefined;
   });
+  it("models", async () => {
+    const response = await openAi.models.list({ });
+    const models = response.data.map((model=>model.id)).filter((name)=>name.includes("gpt"));
+    console.log(models)
+    expect(undefined).to.be.undefined;
+  });
 });
