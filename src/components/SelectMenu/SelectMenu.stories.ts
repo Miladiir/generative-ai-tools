@@ -19,5 +19,6 @@ export const Default: Story = {
     id: "test",
     defaultValue: "Default Value",
     options: ["Test Value", "Default Value", "123"],
+    label: "Test"
   },
 };
