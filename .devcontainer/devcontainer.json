@@ -24,6 +24,9 @@
 			"onAutoForward": "notify"
 		}
 	},
+	"remoteEnv": {
+		"PATH": "${containerEnv:PATH}:/workspaces/ai/node_modules/.bin"
+	},
 	"customizations": {
 		"vscode": {
 			"extensions": [
