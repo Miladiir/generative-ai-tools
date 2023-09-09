@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { StoryObj } from "@storybook/react";
 import { ChatMessagesView } from "./ChatMessagesView";
 import { chatStoreMock } from "./data/ChatStore.mock";
 
@@ -9,7 +9,7 @@ const meta = {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof ChatMessagesView>;
+}; /*satisfies Meta<typeof ChatMessagesView>*/
 
 export default meta;
 type Story = StoryObj<typeof meta>;

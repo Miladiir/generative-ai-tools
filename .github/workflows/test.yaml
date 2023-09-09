@@ -13,4 +13,5 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm run build
+    - run: npx storybook build
 #    - run: npm test
