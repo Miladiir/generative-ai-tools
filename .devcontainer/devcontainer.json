@@ -31,10 +31,11 @@
 		"vscode": {
 			"extensions": [
 				"esbenp.prettier-vscode",
-				"GitHub.copilot-nightly",
 				"dbaeumer.vscode-eslint",
 				"ZixuanChen.vitest-explorer",
-				"bradlc.vscode-tailwindcss"
+				"bradlc.vscode-tailwindcss",
+				"GitHub.copilot-chat",
+				"GitHub.copilot"
 			]
 		}
 	}
