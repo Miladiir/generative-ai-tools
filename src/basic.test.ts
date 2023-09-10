@@ -3,7 +3,8 @@ import { describe } from "vitest";
 
 const openAi = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_APIKEY,
-  dangerouslyAllowBrowser:true});
+  dangerouslyAllowBrowser: true,
+});
 
 describe("hello", () => {
   it("world", async () => {
