@@ -15,7 +15,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "mobx": "^6.10.0",
+    "mobx": "^6.10.2",
     "mobx-react-lite": "^4.0.4",
     "mobx-state-tree": "^5.1.8",
     "openai": "^4.6.0",
