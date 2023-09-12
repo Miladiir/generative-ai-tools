@@ -6,10 +6,11 @@ import { History } from "./History";
 
 const openai = new OpenAI({
   apiKey: import.meta.env.VITE_OPENAI_APIKEY,
+  dangerouslyAllowBrowser: true,
 });
 export async function getCompletion(
   model: string,
-  messages: Instance<typeof History>
+  messages: Instance<typeof History>,
 ): Promise<SnapshotIn<typeof Message>> {
   const messagesOut = messages.map((message) => ({
     role: message.role,
