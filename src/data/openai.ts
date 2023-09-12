@@ -29,6 +29,9 @@ export async function getCompletion(
 export async function getModels(): Promise<string[]> {
   const response = await openai.models.list();
   const allModels = response.data.map((model) => model.id);
-  const gptModels = allModels.filter((name) => name.includes("gpt"));
-  return gptModels;
+  const gptModels = allModels.filter((name) =>
+    /^(?=gpt)(?:(?!(?:\D*\d){4}).)*$/.test(name),
+  );
+  const sortedModels = gptModels.sort();
+  return sortedModels;
 }
