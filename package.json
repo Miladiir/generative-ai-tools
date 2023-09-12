@@ -20,7 +20,8 @@
     "mobx-state-tree": "^5.1.8",
     "openai": "^4.6.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-markdown": "^8.0.7"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.4.0",

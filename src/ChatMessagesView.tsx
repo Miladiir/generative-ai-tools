@@ -3,6 +3,7 @@ import { Instance } from "mobx-state-tree";
 import { Message } from "./data/Message";
 import { ChatStore } from "./data/ChatStore";
 import { Role } from "./data/Role";
+import ReactMarkdown from "react-markdown";
 
 export const ChatMessagesView = observer(function ChatMessagesView(props: {
   store: Instance<typeof ChatStore>;
@@ -19,14 +20,16 @@ export const ChatMessagesView = observer(function ChatMessagesView(props: {
 });
 type ChatMessageProps = { message: Instance<typeof Message> };
 const ChatMessageView = observer(function ChatMessageView(
-  props: ChatMessageProps
+  props: ChatMessageProps,
 ) {
   return (
     <div className="flex flex-col">
       <header className="font-bold">
         {props.message.role === Role.User ? "You" : "Assistant"}:
       </header>
-      <article className="max-w-prose pl-2">{props.message.content}</article>
+      <ReactMarkdown className="prose pl-2">
+        {props.message.content}
+      </ReactMarkdown>
     </div>
   );
 });
